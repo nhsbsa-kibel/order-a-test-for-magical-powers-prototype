@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% from "back-link/macro.njk" import backLink %}
+{% from "button/macro.njk" import button %}
+{% from "input/macro.njk" import input %}
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "/do-you-know-NWC",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/magical-powers" method="post" novalidate>
+
+{{ input({
+  label: {
+    text: "What is your National Wizardy Council number?",
+    size: "l",
+    classes: "nhsuk-fieldset__legend--l",
+    isPageHeading: true
+  },
+  id: "NWC-number",
+  name: "enterNWCNumber"
+}) }}
+{{ button({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -16,6 +16,40 @@
         rows: [
           {
             key: {
+              text: "NWC number known"
+            },
+            value: {
+              text: data.doYouKnowNWC
+            },
+            actions: {
+              items: [
+                {
+                  href: "/do-you-know-NWC",
+                  text: "Change",
+                  visuallyHiddenText: "if you know your NWC"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "NWC number"
+            },
+            value: {
+              text: data.enterNWCNumber
+            },
+            actions: {
+              items: [
+                {
+                  href: "/enter-NWC",
+                  text: "Change",
+                  visuallyHiddenText: "your NWC number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
               text: "Symptoms of magical powers"
             },
             value: {
@@ -82,6 +116,7 @@
               ]
             }
           }
+          
             
               
             
@@ -92,16 +127,16 @@
          
           
       <h2 class="nhsuk-heading-m">
-        Request delivery owl
+        Request delivery
       </h2>
 
       <p>
-        By selecting <b>Request owl</b>, you consent to us sharing your data with the Owl Delivery Service. They'll deliver your test to your local nest in 5 to 10 working days.
+        By selecting <b>Request delivery</b>, you consent to us sharing your data with the Magic Delivery Service. They'll deliver your test to your local nest in 5 to 10 working days.
       </p>
 
       <form action="/confirmation" method="post" novalidate>
         {{ button({
-          text: "Request owl"
+          text: "Request delivery"
         }) }}
       </form>
 

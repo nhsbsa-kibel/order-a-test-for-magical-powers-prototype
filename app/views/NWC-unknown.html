@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% from "panel/macro.njk" import panel %}
+{% from "summary-list/macro.njk" import summaryList %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+      <h1 class="nhsuk-heading-l">You cannot order your test online</h1>
+
+      <p>
+        You need your NWC number to order your test online.
+      </p>
+        <p><h2 class="nhsuk-heading-m">Next steps</h2> </p>
+        <p> You may still be able to order a test by: </p>
+        <p><ul>
+        <li> phone: 0191 2222222
+        <li> email: order@magictests.nhs.uk</ul></p>
+
+
+
+    </div>
+  </div>
+{% endblock %}

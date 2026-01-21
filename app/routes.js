@@ -29,6 +29,30 @@ router.post('/magical-powers-answer', function (req, res) {
   }
 })
 
+router.post('/do-you-know-NWC-answer', function (req, res) {
+  const data = req.session.data
+  const doYouKnowNWC = data.doYouKnowNWC
+
+  if (doYouKnowNWC === "Yes") {
+
+    res.redirect('/enter-NWC')
+
+  } else if (doYouKnowNWC === "No") {
+
+    res.redirect('/NWC-unknown')
+
+  } else if (doYouKnowNWC === "I'm not sure") {
+
+    res.redirect('/NWC-unknown')
+
+  } else {
+
+    // No answer selected, return to question
+    res.redirect('/do-you-know-NWC')
+
+  }
+})
+
 
 
 

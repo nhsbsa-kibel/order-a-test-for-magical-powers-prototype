@@ -7,7 +7,7 @@
 
 {% block beforeContent %}
   {{ backLink({
-    href: "/enter-NWC",
+    href: "/start-page",
     text: "Back"
   }) }}
 {% endblock %}
@@ -15,14 +15,14 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <form action="/magical-powers-answer" method="post" novalidate>
+      <form action="/do-you-know-NWC-answer" method="post" novalidate>
 
         {{ radios({
-          name: "doYouHaveMagicalPowers",
-          value: data.doYouHaveMagicalPowers,
+          name: "doYouKnowNWC",
+          value: data.doYouKnowNWC,
           fieldset: {
             legend: {
-              text: "Do you have symptoms of magical powers?",
+              text: "Do you know your National Wizardry Council number?",
               size: "l",
               classes: "nhsuk-fieldset__legend--l",
               isPageHeading: true
@@ -55,3 +55,4 @@
     </div>
   </div>
 {% endblock %}
+
