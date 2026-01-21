@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+{% from "date-input/macro.njk" import dateInput %}
+{% block beforeContent %}
+  {{ backLink({
+    href: "/details",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/check-answers" method="post" novalidate>
+
+{{ dateInput({
+  id: "when-did-your-symptoms-start",
+  namePrefix: "symptomsStart",
+  values: data.symptomsStart,
+  fieldset: {
+    legend: {
+      text: "When did your symptoms start?",
+      size: "l",
+      classes: "nhsuk-fieldset__legend--l",
+      isPageHeading: true
+    }
+  },
+  hint: {
+    text: "Enter the date you first noticed things getting weird, for example 15 3 1984. If you're a time traveller, you must cannot enter dates from the future."
+  },
+  items: [
+    {
+      name: "day",
+      classes: "nhsuk-input--width-2"
+    },
+    {
+      name: "month",
+      classes: "nhsuk-input--width-2"
+    },
+    {
+      name: "year",
+      classes: "nhsuk-input--width-4"
+    }
+  ]
+}) }}
+{{ button({
+          text: "Continue"
+        }) }}
+{% endblock %}
