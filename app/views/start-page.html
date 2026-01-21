@@ -1,0 +1,107 @@
+{% extends 'layout.html' %}
+
+{% from "breadcrumb/macro.njk" import breadcrumb %}
+{% from "button/macro.njk" import button %}
+{% from 'inset-text/macro.njk' import insetText %}
+{% from "warning-callout/macro.njk" import warningCallout %}
+ {% from "details/macro.njk" import details %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% set dummyNhsNumber = "999 123 4567" %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "#",
+        text: "Home"
+      },
+      {
+        href: "#",
+        text: "NHS services"
+      },
+      {
+        href: "#",
+        text: "Online services"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-xl">Find your National Wizarding Council number</h1>
+      <p>Use this service to get your National Wizarding Council (NWC) number.</p>
+      <p>Your NWC number is a 10 digit number, like <span class="nhsuk-u-nowrap">{{dummyNhsNumber}}</span>.</p>
+
+      
+
+{{ warningCallout({
+  heading: "Important",
+  html: "<p> If you cannot find your NWC number, you can still use this service, but you'll need to <a href=\"#\"> register your test results with the NWC </a> </p>"
+}) }}
+
+
+      
+
+     
+
+{% set dummyNhsNumber = "999 123 4567" %}
+
+{% call details({
+  summaryText: "If you do not know your NWC number"
+}) %}
+  <p>An NWC number is a 10 digit number, like <span class="nhsuk-u-nowrap">{{dummyNhsNumber}}</span>.</p> 
+  
+  <p> You can find your NWC number on:</p>
+  
+  <ul>
+    <li>magic runes</li>
+    <li>the inside of your dreams</li>
+    <li>letters from the Grand Unicorn Council</li>
+    <li>the inside rim of your NWC-issued cauldron</li>
+  </ul>
+  <p>If you can't find it, tough.</p>
+{% endcall %}
+
+     
+
+      <h2 class="nhsuk-heading-l"> Who can use this service</h2>
+      <p>You can use this service if you: 
+        <ul> <li> live in England
+            <li> own a broomstick
+            <li> have a history of pulling rabbits out of hats </ul> </p>
+
+      <p>You can also use this service for someone else as long as the do not use their magic to corrupt code.</p>
+
+      <h2 class="nhsuk-heading-l">Before you start</h2>
+      <p>You will need your:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>full name</li>
+        <li>date of birth</li>
+        <li>postcode of the address you've registered at a GP surgery with</li>
+      </ul>
+
+      <p>You will have your NHS number sent to you by text, email or letter.</p>
+      <p>If you're using this service for someone else, enter their details. They will be sent their NHS number.</p>
+
+      {{ button({
+        text: "Start now",
+        href: "#"
+      }) }}
+
+      <h2 class="nhsuk-heading-m">Other ways to get your NHS number</h2>
+      <p>If you cannot get your NHS number online you can:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>find it on any letter from the NHS like a prescription or appointment letter</li>
+        <li>call your GP surgery and ask them for your number</li>
+      </ul>
+
+      <h2 class="nhsuk-heading-m">About using this service</h2>
+      <p>By using this service you are agreeing to our <a href="#">terms of use</a> and <a href="#">privacy policy</a>.</p>
+
+    </div>
+  </div>
+{% endblock %}
