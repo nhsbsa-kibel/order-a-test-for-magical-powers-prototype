@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+{% from "back-link/macro.njk" import backLink %}
+{% from "button/macro.njk" import button %}
+{% from "radios/macro.njk" import radios %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "/how-long",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/check-answers" method="post" novalidate>
+
+        {{ radios({
+          name: "howDeliver",
+          value: data.howDeliver,
+          fieldset: {
+            legend: {
+              text: "How do you want your test delivered?",
+              size: "l",
+              classes: "nhsuk-fieldset__legend--l",
+              isPageHeading: true
+            }
+            },
+          items: [
+            {
+              value: "Owl",
+              text: "Owl"
+            },
+            {
+              value: "Broomstick",
+              text: "Broomstick"
+            },
+            {
+              value: "Teleportation",
+              text: "Teleportation"
+            }
+          ]
+        }) }}
+
+        {{ button({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
