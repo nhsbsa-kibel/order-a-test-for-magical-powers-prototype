@@ -18,7 +18,8 @@
       <form action="/details" method="post" novalidate>
 
         {{ radios({
-          name: "magicalPowers",
+          name: "doYouHaveMagicalPowers",
+          value: data.doYouHaveMagicalPowers,
           fieldset: {
             legend: {
               text: "Do you have symptoms of magical powers?",
@@ -32,15 +33,15 @@
   },
           items: [
             {
-              value: "yes",
+              value: "Yes",
               text: "Yes"
             },
             {
-              value: "no",
+              value: "No",
               text: "No"
             },
             {
-              value: "i'm not sure",
+              value: "I'm not sure",
               text: "I'm not sure"
             }
           ]

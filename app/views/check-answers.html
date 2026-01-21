@@ -1,0 +1,76 @@
+{% extends 'layout.html' %}
+{% from "button/macro.njk" import button %}
+{% from "summary-list/macro.njk" import summaryList %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l">Check your answers before requesting your delivery owl</h1>
+
+      <h2 class="nhsuk-heading-m">
+        Magical details
+      </h2>
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Symptoms of magical powers"
+            },
+            value: {
+              text: data.doYouHaveMagicalPowers
+            },
+            actions: {
+              items: [
+                {
+                  href: "/magical-powers",
+                  text: "Change",
+                  visuallyHiddenText: "symptoms of magical powers"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "More details"
+            },
+            value: {
+              text: data.moreDetails
+            },
+            actions: {
+              items: [
+                {
+                  href: "/details",
+                  text: "Change",
+                  visuallyHiddenText: "details answers"
+                }
+              ]
+            }
+          }
+            
+              
+            
+          
+        ]
+      }) }}
+
+         
+          
+      <h2 class="nhsuk-heading-m">
+        Request delivery owl
+      </h2>
+
+      <p>
+        By selecting <b>Request owl</b>, you consent to us sharing your data with the Owl Delivery Service. They'll deliver your test to your local nest in 5 to 10 working days.
+      </p>
+
+      <form action="/confirmation" method="post" novalidate>
+        {{ button({
+          text: "Request owl"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

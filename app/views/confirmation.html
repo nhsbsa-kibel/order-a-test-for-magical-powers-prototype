@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% from "panel/macro.njk" import panel %}
+{% from "summary-list/macro.njk" import summaryList %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {{ panel({
+        titleText: "Test requested",
+        text: "We've sent you a confirmation email"
+      }) }}
+
+      <h2 class="nhsuk-heading-m">Your test delivery details</h2>
+
+      {% set siteLocationHtml %}
+        Newcastle Central Nest<br>
+        Owl Street<br>
+        123 Spellbound Road<br>
+        Newcastle upon Tyne<br>
+        NE1 5ED
+      {% endset %}
+
+      {{ summaryList({
+        classes: "nhsuk-summary-list--no-border",
+        rows: [
+          {
+            key: {
+              text: "Site location"
+            },
+            value: {
+              html: siteLocationHtml
+            }
+          },
+          {
+            key: {
+              text: "Date and time"
+            },
+            value: {
+              text: "Thursday 15 June at 9:10am"
+            }
+          }
+        ]
+      }) }}
+
+      <p>
+        Help us improve this service by <a href="#">leaving feedback for the Magic Circle (opens in new dimension)</a>.
+      </p>
+
+    </div>
+  </div>
+{% endblock %}
